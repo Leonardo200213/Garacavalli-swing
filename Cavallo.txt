@@ -1,0 +1,46 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tipsit.garacavalliconthread;
+
+/**
+ *
+ * @author Messeri
+ */
+public class Cavallo {
+
+    int posizione;
+
+    private int getCoordx() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setCoordx(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public class Cavallo implements Runnable {
+	Cavallo c;
+	Gara campo;
+        Thread t = new Thread(this);
+	int posizione; //posizione
+	
+	public Cavallo(Cavallo c, Gara cam) {
+		campo=cam;
+		t.start();
+		posizione=0;
+	}
+        
+	public void run() {
+            int dimImmagine=500;
+                int dimPista=500;
+                while((c.getCoordx()+dimImmagine)<dimPista) {
+                    c.setCoordx(c.getCoordx());
+                        campo.repaint();
+                }
+                posizione = campo.getPosizione();
+        }
+    }
+}
