@@ -1,0 +1,66 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tipsit.garacavalliconthread;
+
+
+
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+/**
+ *
+ * @author Messeri
+ */
+public class Gara {
+
+    void repaint() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public class Gara extends JFrame {
+	int posizione=1;
+	GUICavalli[] partecipanti;
+	Cavallo[] threadpartecipanti;
+	Campo corsia;
+	
+	public Gara() { //costruttore
+		super("Gara di equitazione");
+		setSize(500, 500); //grandezza della finestra
+		corsia = new Campo();
+		partecipanti = new GUICavalli[5];
+		threadpartecipanti = new Cavallo[5];
+                
+		int partenza = 20; //posizione di partenza
+		for (int i=0; i<5; i++) { //inizio corsa
+			partecipanti[i] = new GUICavalli(partenza,  i + 1);
+			threadpartecipanti[i] = new Cavallo(partecipanti[i], this);		
+		}
+		this.add(corsia); //aggiungo la corsia
+		setVisible(true);
+	}
+        
+        public synchronized int getPosizione() { //ritorna la posizione
+            posizione++;
+            return posizione;
+        }
+	
+	public synchronized void arrivi() {
+		boolean arrivato = true; // variabile per segnare se il thread è arrivato
+		for (int x=0; x<5; x++) {
+			if (threadpartecipanti[x].posizione == 0) { //controlla se il thread è arrivato
+				arrivato = false;
+			}
+		}
+	}
+        public static void main(String[] a) {
+		Gara g = new Gara();
+	}
+    } 
+}
