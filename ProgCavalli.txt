@@ -1,0 +1,16 @@
+package tipsit.garacavalliconthread;
+
+
+import tipsit.garacavalliconthread.Gara;
+
+
+/**
+ *
+ * @author Messeri 
+*/
+public class ProgCavalli {
+    
+        public static void main(String[] a) {
+		Gara g = new Gara();
+	}
+}
