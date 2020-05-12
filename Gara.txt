@@ -59,8 +59,5 @@ public class Gara {
 			}
 		}
 	}
-        public static void main(String[] a) {
-		Gara g = new Gara();
-	}
     } 
 }
