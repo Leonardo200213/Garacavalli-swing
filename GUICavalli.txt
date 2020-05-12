@@ -5,14 +5,67 @@
  */
 package tipsit.garacavalliconthread;
 
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.MediaTracker;
+import java.awt.Toolkit;
+
 /**
  *
  * @author Messeri
  */
 class GUICavalli {
 
-    GUICavalli(int partenza, int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+    	int coordx; //coordinate 
+	int coordy;
+	Image img;
+
+	public GUICavalli(int y, int x) {
+                int z;
+		coordx = 0;
+		coordy = y;
+		Toolkit tool = Toolkit.getDefaultToolkit(); //Toolkit: lavorare con la grandezza dello schermo
+
+		switch (z) {
+		case 1: {
+			img = tool.getImage("");
+			break;
+		}
+		case 2: {
+			img = tool.getImage("");
+			break;
+		}
+		case 3: {
+			img = tool.getImage("");
+			break;
+		}
+		case 4: {
+			img = tool.getImage("");
+			break;
+		}
+		case 5: {
+			img = tool.getImage("");
+			break;
+		}
+		}
+		MediaTracker tracker = new MediaTracker(this); //mediatracker: per velocizzare il caricamento e l'inserimento delle immagini
+		tracker.addImage(img, 1);
+	}
+	
+	public void setCoordx(int n){
+            coordx = n;
+	}
+	
+	public int getCoordx(){
+            return coordx;
+	}
+	
+	public void paint(Graphics g) {
+            g.drawImage(img, coordx, coordy, null);
+	}
+
+        public void setSize(int 100, int 100) {
+        }
+        
 }
