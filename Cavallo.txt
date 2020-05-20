@@ -1,46 +1,42 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tipsit.garacavalliconthread;
 
 /**
- *
  * @author Messeri
  */
-public class Cavallo {
 
-    int posizione;
-
-    private int getCoordx() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void setCoordx(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+public class Cavallo implements Runnable {
+    GUICavalli c;
+    Gara campo;
+    Thread t = new Thread(this); //dichiarazione del thread
+    int posizione; //posizione del cavallo
+    int velocità; //velocità del cavallo
+    int conteggio;
+    
+    public Cavallo(GUICavalli horse, Gara cam){
+        c = horse;
+        campo = cam;
+        conteggio = 0;
+        velocità = 5; //impostazione velocità del cavallo
+        posizione = 0; //impostazione della posizione iniziale del cavallo
+        t.start(); //comincia il thread
     }
     
-    public class Cavallo implements Runnable {
-	Cavallo c;
-	Gara campo;
-        Thread t = new Thread(this);
-	int posizione; //posizione
-	
-	public Cavallo(Cavallo c, Gara cam) {
-		campo=cam;
-		t.start();
-		posizione=0;
-	}
-        
-	public void run() {
-            int dimImmagine=500;
-                int dimPista=500;
-                while((c.getCoordx()+dimImmagine)<dimPista) {
-                    c.setCoordx(c.getCoordx());
-                        campo.repaint();
-                }
-                posizione = campo.getPosizione();
+    public void run(){
+        int dimImmagine = 10;
+        int dimPista = 1000;
+        while((c.getX() + dimImmagine) < dimPista){ //finchè l'immagine è dentro la pista, continua
+            if ((conteggio % 5) == 0){
+                velocità = (int)(Math.random() * 5 + 1); //velocità del cavallo
+            }
+            c.setX(c.getX() + velocità); //aggiunge alla coordinata x del cavallo la velocità per farlo muovere
+            conteggio++;
+            try {
+                Thread.sleep(75);
+            }
+            catch (Exception e) {}
+            campo.repaint();
         }
+        posizione = campo.getPosizione(); //mette come posizione quella nella classe campo
+        campo.arrivi(); //annuncia gli arrivi
     }
 }
