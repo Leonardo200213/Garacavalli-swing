@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tipsit.garacavalliconthread;
 
 import java.awt.Dimension;
@@ -10,62 +5,56 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.MediaTracker;
 import java.awt.Toolkit;
+import javax.swing.JPanel;
 
 /**
- *
  * @author Messeri
  */
-class GUICavalli {
 
-    	int coordx; //coordinate 
-	int coordy;
-	Image img;
-
-	public GUICavalli(int y, int x) {
-                int z;
-		coordx = 0;
-		coordy = y;
-		Toolkit tool = Toolkit.getDefaultToolkit(); //Toolkit: lavorare con la grandezza dello schermo
-
-		switch (z) {
-		case 1: {
-			img = tool.getImage("");
-			break;
-		}
-		case 2: {
-			img = tool.getImage("");
-			break;
-		}
-		case 3: {
-			img = tool.getImage("");
-			break;
-		}
-		case 4: {
-			img = tool.getImage("");
-			break;
-		}
-		case 5: {
-			img = tool.getImage("");
-			break;
-		}
-		}
-		MediaTracker tracker = new MediaTracker(this); //mediatracker: per velocizzare il caricamento e l'inserimento delle immagini
-		tracker.addImage(img, 1);
-	}
-	
-	public void setCoordx(int n){
-            coordx = n;
-	}
-	
-	public int getCoordx(){
-            return coordx;
-	}
-	
-	public void paint(Graphics g) {
-            g.drawImage(img, coordx, coordy, null);
-	}
-
-        public void setSize(int 100, int 100) {
+public class GUICavalli extends JPanel {
+    int coordx, coordy;
+    Image img;
+    
+    public GUICavalli(int y, int x) {
+        coordx = 0;
+        coordy = y;
+        setSize(80, 81);
+        Toolkit tool = Toolkit.getDefaultToolkit(); //Toolkit: lavorare con la grandezza dello schermo
+        switch (x) {
+            case 1: {
+                img = tool.getImage("");
+                break;
+            }
+            case 2: {
+                img = tool.getImage("");
+                break;
+            }
+            case 3: {
+                img = tool.getImage("");
+                break;
+            }
+            case 4: {
+                img = tool.getImage("");
+                break;
+            }
+            case 5: {
+                img = tool.getImage("");
+                break;
+            }
         }
-        
+        MediaTracker tracker = new MediaTracker(this); //mediatracker: per velocizzare il caricamento e l'inserimento delle immagini
+        tracker.addImage(img, 1);
+    }
+    
+    public void setX(int n){
+        coordx = n;
+    }
+    
+    public int getX(){
+        return coordx;
+    }
+    
+    public void paint(Graphics g) {
+        g.drawImage(img,  coordx,  coordy, null);
+    }
 }
