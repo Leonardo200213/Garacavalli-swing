@@ -18,7 +18,7 @@ public class GUICavalli extends JPanel {
     public GUICavalli(int y, int x) {
         coordx = 0;
         coordy = y;
-        setSize(80, 81);
+        setSize(80, 90);
         Toolkit tool = Toolkit.getDefaultToolkit(); //Toolkit: lavorare con la grandezza dello schermo
         switch (x) {
             case 1: {
@@ -46,8 +46,8 @@ public class GUICavalli extends JPanel {
         tracker.addImage(img, 1);
     }
     
-    public void setX(int n){
-        coordx = n;
+    public void setX(int m){
+        coordx = m;
     }
     
     public int getX(){
