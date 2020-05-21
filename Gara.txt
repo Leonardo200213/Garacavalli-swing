@@ -21,64 +21,64 @@ public class Gara extends JFrame {
     int posizione;
     GUICavalli[] partecipanti;
     Cavallo[] thread;
-    Campo pista;
+    Campo circuito;
     Graphics offscreen;
     Image buffer_virtuale;
-    int cav = 2;
+    int c = 2;
     
     public Gara() {
-        super("Gara Cavalli");
+        super("Gara");
         setSize(1000, 500);
         setLocation(10, 40);
-        pista = new Campo();
-        do {
+        circuito = new Campo();
+       /* do {
             Scanner input = new Scanner(System.in);
-            System.out.println("Scrivi per cominciare: ");
-            cav=input.nextInt();
-        }while(cav<2 || cav>10);
-        partecipanti = new GUICavalli[cav];
-        thread = new Cavallo[cav];
+            System.out.println("Scrivi su quale cavallo punti per cominciare: "); //frase iniziale
+            c = input.nextInt(); //inserimento dell'input
+        }while(c < 1 || c > 5); //da 1 a 5 quanti sono i cavalli
+*/
+        partecipanti = new GUICavalli[c];
+        thread = new Cavallo[c];
         posizione = 1;
-        int partenza = 15;
-        for (int x2=0; x2<cav; x2++) {
-            partecipanti[x2] = new GUICavalli(partenza,  x2+1);
+        int partenza = 10;
+        for (int x2 = 0; x2 < c; x2++) {
+            partecipanti[x2] = new GUICavalli(partenza,  x2 + 1);
             thread[x2] = new Cavallo(partecipanti[x2], this);
             partenza = partenza+100;
         }
-        this.add(pista);
-        setVisible(true);
+        this.add(circuito); //aggiunge il campo tramite la variabile circuito...
+        setVisible(true); //...e lo rende visibile
     }
     
-    public synchronized int getPosizione() {
+    public synchronized int getPosizione(){ //metodo per ottenere la posizione
         return posizione++;
     }
     
-    public synchronized void arrivi() {
-        boolean arrivati=true;
-        for (int x2=0; x2<cav; x2++) {
-            if (thread[x2].posizione==0) {
-                arrivati=false;
+    public synchronized void arrivi(){
+        boolean fine = true;
+        for (int x2 = 0; x2 < c; x2++){
+            if (thread[x2].posizione == 0){ //se la posizione è uguale a 0 significa che non è arrivato al traguardo
+                fine = false;
             }
         }
-        if(arrivati) {
+        if (fine) { //altrimenti si
             vincitore();
         }
     }
     
-    public void vincitore() {
+    public void vincitore(){
         JLabel[] arrivi;
         arrivi = new JLabel[10];
         JFrame classifica = new JFrame("Classifica");
-        classifica.setSize(500, 500);
-        classifica.setLocation(280, 130);
+        classifica.setSize(450, 200); //grandezza della finestra successiva
+        classifica.setLocation(300, 150); 
         classifica.setDefaultCloseOperation(EXIT_ON_CLOSE);
         classifica.getContentPane().setLayout(new GridLayout(5,1));
-        for(int x2=1; x2<cav+1; x2++) {
-            for (int y2=0; y2<cav; y2++) {
-                if (thread[y2].posizione==1){
-                    arrivi[y2]=new JLabel("1' classificato in " + (y2+1)+"' corsia");
-                    arrivi[y2].setFont(new Font("times New Roman", Font.ITALIC, 20));
-                    arrivi[y2].setForeground(Color.RED);
+        for(int x2 = 1; x2 <c + 1; x2++){
+            for (int y2 = 0; y2 < c; y2++){
+                if (thread[y2].posizione == 1){ //thread arrivato in prima posizione
+                    arrivi[y2] = new JLabel("Il vincitore è nella corsia: " + (y2 + 1)); //messaggio del vincitore
+                    arrivi[y2].setForeground(Color.black); //colore del messaggio
                     classifica.getContentPane().add(arrivi[y2]);
                     y2=10;
                     x2=11;
@@ -88,22 +88,9 @@ public class Gara extends JFrame {
         classifica.setVisible(true);
     }
     
-    public void update(Graphics g) {
+    public void update(Graphics g) { //modifica
         paint(g);
     }
     
-    public void paint(Graphics g) {
-        if (partecipanti != null) {
-            Graphics2D screen = (Graphics2D) g;
-            buffer_virtuale= createImage(1000, 1645);
-            offscreen = buffer_virtuale.getGraphics();
-            Dimension d=getSize();
-            pista.paint(offscreen);
-            for (int x2=0; x2<cav; x2++) {
-                partecipanti[x2].paint(offscreen);
-            }
-            screen.drawImage(buffer_virtuale, 0, 30, this);
-            offscreen.dispose();
-        }
-    }
+    
 }
