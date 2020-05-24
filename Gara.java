@@ -9,6 +9,7 @@ import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.util.Scanner;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
@@ -28,9 +29,10 @@ public class Gara extends JFrame {
     
     public Gara() {
         super("Gara");
-        setSize(1000, 500);
-        setLocation(10, 40);
+        setSize(1000, 540);
+        setLocation(500, 300);
         circuito = new Campo();
+        JButton bottone = new JButton("Inizia gara");
        /* do {
             Scanner input = new Scanner(System.in);
             System.out.println("Scrivi su quale cavallo punti per cominciare: "); //frase iniziale
