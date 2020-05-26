@@ -6,6 +6,9 @@ import java.awt.Image;
 import java.awt.MediaTracker;
 import java.awt.Toolkit;
 import javax.swing.JPanel;
+import java.awt.*;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 /**
  * @author Messeri
@@ -15,30 +18,30 @@ public class GUICavalli extends JPanel {
     int coordx, coordy;
     Image img;
     
-    public GUICavalli(int y, int x) {
+    public GUICavalli(int y, int x) throws IOException {
         coordx = 0;
         coordy = y;
         setSize(80, 90);
-        Toolkit tool = Toolkit.getDefaultToolkit(); //Toolkit: lavorare con la grandezza dello schermo
+        Toolkit tk = Toolkit.getDefaultToolkit(); //Toolkit: lavorare con la grandezza dello schermo
         switch (x) {
             case 1: {
-                img = tool.getImage("");
+                img = tk.getImage(getClass().getResource("cavallo1.jpg"));
                 break;
             }
             case 2: {
-                img = tool.getImage("");
+                img = tk.getImage(getClass().getResource("cavallo2.png"));
                 break;
             }
             case 3: {
-                img = tool.getImage("");
+                img = tk.getImage(getClass().getResource("cavallo3.png"));
                 break;
             }
             case 4: {
-                img = tool.getImage("");
+                img = tk.getImage(getClass().getResource("cavallo4.jpg"));
                 break;
             }
             case 5: {
-                img = tool.getImage("");
+                img = tk.getImage(getClass().getResource("cavallo5.jpg"));
                 break;
             }
         }
