@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"tipsit.garacavalliconthread","l":"Campo"},{"p":"tipsit.garacavalliconthread","l":"Cavallo"},{"p":"tipsit.garacavalliconthread","l":"Gara"},{"p":"tipsit.garacavalliconthread","l":"GUICavalli"},{"p":"tipsit.garacavalliconthread","l":"ProgCavalli"}]
