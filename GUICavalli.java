@@ -1,3 +1,9 @@
+/**
+ * Questa classe è utilizzata inserire le immagini dei cavalli
+ * 
+*/
+
+
 package tipsit.garacavalliconthread;
 
 import java.awt.Dimension;
@@ -7,8 +13,11 @@ import java.awt.MediaTracker;
 import java.awt.Toolkit;
 import javax.swing.JPanel;
 import java.awt.*;
+import java.applet.*;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  * @author Messeri
@@ -18,45 +27,56 @@ public class GUICavalli extends JPanel {
     int coordx, coordy;
     Image img;
     
+    /**
+     * 
+     * @param y
+     * @param x
+     * @throws IOException 
+     */
     public GUICavalli(int y, int x) throws IOException {
         coordx = 0;
         coordy = y;
-        setSize(80, 90);
+        setSize(80, 75);
         Toolkit tk = Toolkit.getDefaultToolkit(); //Toolkit: lavorare con la grandezza dello schermo
         switch (x) {
             case 1: {
-                img = tk.getImage(getClass().getResource("cavallo1.jpg"));
+                   ImageIcon image = new ImageIcon("cavallo1.jpg");
+                   JLabel imagelabel = new JLabel(image);
                 break;
             }
             case 2: {
-                img = tk.getImage(getClass().getResource("cavallo2.png"));
-                break;
             }
             case 3: {
-                img = tk.getImage(getClass().getResource("cavallo3.png"));
-                break;
             }
             case 4: {
-                img = tk.getImage(getClass().getResource("cavallo4.jpg"));
-                break;
             }
             case 5: {
-                img = tk.getImage(getClass().getResource("cavallo5.jpg"));
-                break;
             }
         }
         MediaTracker tracker = new MediaTracker(this); //mediatracker: per velocizzare il caricamento e l'inserimento delle immagini
         tracker.addImage(img, 1);
     }
     
+    /**
+     * Metodo per settare la coordinata X
+     * @param m 
+     */
     public void setX(int m){
         coordx = m;
     }
     
+    /**
+     * Metodo per ottenere la coordinata X
+     * @return 
+     */
     public int getX(){
         return coordx;
     }
     
+    /**
+     * Disegna l'immagine utilizzando le coordinate dichiarate in precedenza
+     * @param g 
+     */
     public void paint(Graphics g) {
         g.drawImage(img,  coordx,  coordy, null);
     }
