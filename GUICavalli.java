@@ -6,63 +6,82 @@
 
 package tipsit.garacavalliconthread;
 
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.MediaTracker;
-import java.awt.Toolkit;
-import javax.swing.JPanel;
 import java.awt.*;
-import java.applet.*;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
+import javax.swing.*;
 
 /**
+ * 
  * @author Messeri
  */
-
-public class GUICavalli extends JPanel {
-    int coordx, coordy;
-    Image img;
+public class GUICavalli extends JPanel{
+    int coordx; //coordinata x
+    int coordy; //coordinata y
+    Image img; //immagine
     
     /**
-     * 
-     * @param y
-     * @param x
-     * @throws IOException 
+     * Costruttore per settare x e y e le immagini
+     * @param y coordinata y
+     * @param x coordinata x
      */
-    public GUICavalli(int y, int x) throws IOException {
-        coordx = 0;
-        coordy = y;
-        setSize(80, 75);
-        Toolkit tk = Toolkit.getDefaultToolkit(); //Toolkit: lavorare con la grandezza dello schermo
-        switch (x) {
+    public GUICavalli(int y, int x){
+        this.coordx = 0;
+        this.coordy = y;
+        setSize(80,80);
+        Toolkit tk = Toolkit.getDefaultToolkit();
+        switch(x){
             case 1: {
-                   ImageIcon image = new ImageIcon("cavallo1.jpg");
-                   JLabel imagelabel = new JLabel(image);
+                img = tk.getImage("cavallo1.png"); 
                 break;
             }
             case 2: {
+                img = tk.getImage("img/cavallo2.png"); 
+                break;
             }
             case 3: {
+                img = tk.getImage("img/cavallo3.png"); 
+                break;
             }
             case 4: {
+                img = tk.getImage("img/cavallo4.png"); 
+                break;
             }
             case 5: {
+                img = tk.getImage("img/cavallo5.png"); 
+                break;
+            }
+            case 6: {
+                img = tk.getImage("img/cavallo6.png"); 
+                break;
+            }
+            case 7: {
+                img = tk.getImage("img/cavallo7.png"); 
+                break;
+            }
+            case 8: {
+                img = tk.getImage("img/cavallo8.png"); 
+                break;
+            }
+            case 9: {
+                img = tk.getImage("img/cavallo9.png"); 
+                break;
+            }
+            case 10: {
+                img = tk.getImage("img/cavallo10.png"); 
+                break;
             }
         }
-        MediaTracker tracker = new MediaTracker(this); //mediatracker: per velocizzare il caricamento e l'inserimento delle immagini
-        tracker.addImage(img, 1);
+        MediaTracker mt = new MediaTracker(this);
+        mt.addImage(img, 1);
+        try{mt.waitForID(1);}
+        catch(InterruptedException e){}
     }
     
     /**
      * Metodo per settare la coordinata X
      * @param m 
      */
-    public void setX(int m){
-        coordx = m;
+    public void setX(int n){
+        this.coordx = n;
     }
     
     /**
@@ -70,14 +89,21 @@ public class GUICavalli extends JPanel {
      * @return 
      */
     public int getX(){
-        return coordx;
+        return this.coordx;
     }
     
     /**
      * Disegna l'immagine utilizzando le coordinate dichiarate in precedenza
      * @param g 
      */
-    public void paint(Graphics g) {
-        g.drawImage(img,  coordx,  coordy, null);
+    public void paint(Graphics g){
+        g.drawImage(img, coordx, coordy, null);
     }
 }
+
+
+
+
+
+
+
