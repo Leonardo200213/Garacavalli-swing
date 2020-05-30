@@ -34,39 +34,39 @@ public class GUICavalli extends JPanel{
                 break;
             }
             case 2: {
-                img = tk.getImage("img/cavallo2.png"); 
+                img = tk.getImage("cavallo2.png"); 
                 break;
             }
             case 3: {
-                img = tk.getImage("img/cavallo3.png"); 
+                img = tk.getImage("cavallo3.png"); 
                 break;
             }
             case 4: {
-                img = tk.getImage("img/cavallo4.png"); 
+                img = tk.getImage("cavallo4.png"); 
                 break;
             }
             case 5: {
-                img = tk.getImage("img/cavallo5.png"); 
+                img = tk.getImage("cavallo5.png"); 
                 break;
             }
             case 6: {
-                img = tk.getImage("img/cavallo6.png"); 
+                img = tk.getImage("cavallo6.png"); 
                 break;
             }
             case 7: {
-                img = tk.getImage("img/cavallo7.png"); 
+                img = tk.getImage("cavallo7.png"); 
                 break;
             }
             case 8: {
-                img = tk.getImage("img/cavallo8.png"); 
+                img = tk.getImage("cavallo8.png"); 
                 break;
             }
             case 9: {
-                img = tk.getImage("img/cavallo9.png"); 
+                img = tk.getImage("cavallo9.png"); 
                 break;
             }
             case 10: {
-                img = tk.getImage("img/cavallo10.png"); 
+                img = tk.getImage("cavallo10.png"); 
                 break;
             }
         }
