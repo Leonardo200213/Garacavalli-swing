@@ -6,4 +6,6 @@ Nel repository sono presenti i file singoli ".java", in questi file e principalm
 il percorso alle immagini direttamente connesso con le immagini nel repository (Esempio all'interno del file:"cavallo1.png").
 Altrimenti per vedere il progetto con tutti i file bisogna scaricare il file "Tipsit-garacavalliconthread.zip" in cui il
 percorso alle immagini è collegato alle immagini nella cartella img (Esempio all'interno del file:"img/cavallo1.png").
-Infine è presente una cartella contenente l'intero javadoc del progetto creato con Apache NetBeans.
+Infine se non si riuscisse a vedere l'esercizio, è presente anche la cartella completa del progetto non compressata ma senza il
+javadoc all'interno dato che la cartella sarebbe risultata troppo pesante per essere inserita nel repository.
+Inoltre è presente una cartella contenente l'intero javadoc del progetto creato con Apache NetBeans.
