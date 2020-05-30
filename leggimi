@@ -1,0 +1,9 @@
+-----------------------------------
+Guida alle immagini
+-----------------------------------
+
+Nel repository sono presenti i file singoli ".java", in questi file e principalmente nel file GUICavalli.java è presente
+il percorso alle immagini direttamente connesso con le immagini nel repository (Esempio all'interno del file:"cavallo1.png").
+Altrimenti per vedere il progetto con tutti i file bisogna scaricare il file "Tipsit-garacavalliconthread.zip" in cui il
+percorso alle immagini è collegato alle immagini nella cartella img (Esempio all'interno del file:"img/cavallo1.png").
+Infine è presente una cartella contenente l'intero javadoc del progetto creato con Apache NetBeans.
