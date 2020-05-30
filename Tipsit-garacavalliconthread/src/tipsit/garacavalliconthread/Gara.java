@@ -45,7 +45,7 @@ public class Gara extends JFrame {
              * Messaggi che legge l'utente
              */
             System.out.println("Benvenuto alla gara dei cavalli");
-            System.out.println("Scegli quanti cavalli vorresti che gareggiassero: "); //frase iniziale
+            System.out.println("Scegli quanti cavalli vorresti che gareggiassero e premi INVIO per iniziare: "); //frase iniziale
             c = input.nextInt(); //inserimento dell'input
             if(c >= 11 || c<=1){
                 System.out.println("Devi inserire un valore tra 2 e 10" + "\n");
